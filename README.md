@@ -114,6 +114,10 @@ This repository holds the **Windows installers** and the **update manifest** (`l
 
 <sub>Thanks to the Smart Citizen project, whose public feature list helped guide what a companion app can do. No code was copied.</sub>
 
+<sub>Mission data and payout estimates on omniglass.org (TacBoard mission search, Contract rewards) come from <a href="https://sccraftlab.com/missions">SC Crafting Lab</a> by Percewall. Thank you. Trade prices and distances come from <a href="https://uexcorp.space">UEX</a>; ship, item and picture data from the <a href="https://starcitizen.tools">Star Citizen Wiki</a>.</sub>
+
+<sub><a href="https://omniglass.org/privacy.html">Privacy policy</a> · <a href="https://omniglass.org/terms.html">Terms of use</a></sub>
+
 <sub>OmniGlass is an unofficial Star Citizen fan project. It is not affiliated with, endorsed by or sponsored by Cloud Imperium Games or Roberts Space Industries. Star Citizen®, Roberts Space Industries® and Cloud Imperium® are registered trademarks of Cloud Imperium Rights LLC and Cloud Imperium Rights Ltd. All game content and materials are the property of their respective owners.</sub>
 
 </div>
