@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/banner.svg" alt="OmniGlass OS™: one window for your Star Citizen life" width="100%">
+<img src="assets/banner.png" alt="OmniGlass OS™: one window for your Star Citizen life" width="100%">
 
 <br>
 
