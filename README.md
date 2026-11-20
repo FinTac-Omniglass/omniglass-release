@@ -41,7 +41,7 @@ This repository holds the **Windows installers** and the **update manifest** (`l
     <td width="96" align="center"><img src="assets/icons/tacboard.png" width="72" alt=""></td>
     <td>
       <h3>Field Notes: the game's own screens, made smarter</h3>
-      An optional text layer adds blueprint marks to contracts (new, or already owned), mission details such as rank, <code>ILLEGAL</code>, <code>CHAIN</code> and <code>ONCE ONLY</code> flags and reputation per faction, and handheld weapon stats. You see a preview first and can roll it back.
+      A text layer adds blueprint marks to contracts (new, or already owned), mission details such as rank, <code>ILLEGAL</code>, <code>CHAIN</code> and <code>ONCE ONLY</code> flags and reputation per faction, and handheld weapon stats. Linked to your profile, it stays on and updates itself as your data changes; unlinked, it's yours to switch on, with a preview first. Either way it can be rolled back.
     </td>
   </tr>
   <tr>
@@ -91,7 +91,7 @@ This repository holds the **Windows installers** and the **update manifest** (`l
 | | |
 |---|---|
 | 🚫 | Never reads game memory and never sends input to the game. |
-| 📝 | The only game file it can change is the optional Field Notes text (`global.ini` and the language line in `user.cfg`), and only with the game closed, after a preview. It can be rolled back. |
+| 📝 | The only game files it can change are the Field Notes text (`global.ini` and the language line in `user.cfg`), and only with the game closed. It refuses to write while Star Citizen is running, and it can be rolled back. |
 | 🕶️ | Never sends other players' names anywhere. PvP opponents show as **Player**. |
 | 🔐 | Your profile link and token are never included in settings backups. |
 
