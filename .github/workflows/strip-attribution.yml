@@ -1,0 +1,50 @@
+# Removes "Generated with/by Claude Code" lines (and the session link under them) from pull request descriptions, pull request
+# comments and review comments. Runs whenever one is opened or edited. Run it by hand (Actions > strip-attribution > Run workflow)
+# to clean every existing pull request and comment in this repository once. Commit history is never touched.
+name: strip-attribution
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+  issue_comment:
+    types: [created, edited]
+  pull_request_review_comment:
+    types: [created, edited]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+jobs:
+  strip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const LINE = /^[ \t]*[_*>]*\s*(?:🤖\s*)?Generated\s+(?:with|by)\s+\[?Claude(?:\s+Code)?\]?.*$/gim;
+            const URL = /^[ \t]*<?https:\/\/claude\.ai\/code\S*>?[ \t]*$/gim;
+            const clean = (t) => {
+              if (typeof t !== 'string') return t;
+              let s = t.replace(LINE, '').replace(URL, '');
+              s = s.replace(/\n(?:[ \t]*\n)*[ \t]*-{3,}[ \t]*(?=\n*$)/, '');
+              return s.replace(/\n{3,}/g, '\n\n').replace(/\s+$/, '') + (t.endsWith('\n') ? '\n' : '');
+            };
+            const dirty = (t) => typeof t === 'string' && clean(t) !== t;
+            const p = context.payload;
+            if (context.eventName === 'pull_request') {
+              if (dirty(p.pull_request.body)) await github.rest.pulls.update({ owner, repo, pull_number: p.pull_request.number, body: clean(p.pull_request.body) });
+            } else if (context.eventName === 'issue_comment') {
+              if (dirty(p.comment.body)) await github.rest.issues.updateComment({ owner, repo, comment_id: p.comment.id, body: clean(p.comment.body) });
+            } else if (context.eventName === 'pull_request_review_comment') {
+              if (dirty(p.comment.body)) await github.rest.pulls.updateReviewComment({ owner, repo, comment_id: p.comment.id, body: clean(p.comment.body) });
+            } else {
+              let n = 0;
+              for await (const r of github.paginate.iterator(github.rest.pulls.list, { owner, repo, state: 'all', per_page: 100 }))
+                for (const x of r.data) if (dirty(x.body)) { await github.rest.pulls.update({ owner, repo, pull_number: x.number, body: clean(x.body) }); n++; }
+              for await (const r of github.paginate.iterator(github.rest.issues.listCommentsForRepo, { owner, repo, per_page: 100 }))
+                for (const x of r.data) if (dirty(x.body)) { await github.rest.issues.updateComment({ owner, repo, comment_id: x.id, body: clean(x.body) }); n++; }
+              for await (const r of github.paginate.iterator(github.rest.pulls.listReviewCommentsForRepo, { owner, repo, per_page: 100 }))
+                for (const x of r.data) if (dirty(x.body)) { await github.rest.pulls.updateReviewComment({ owner, repo, comment_id: x.id, body: clean(x.body) }); n++; }
+              core.info('Cleaned ' + n + ' item(s).');
+            }
