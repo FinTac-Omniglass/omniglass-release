@@ -114,15 +114,15 @@ This repository holds the **Windows installers** and the **update manifest** (`l
 <br>
 
 <!-- latest-release:start -->
-## Latest release: 1.4.2 <sub>(2026-11-25)</sub>
+## Latest release: 1.4.3 <sub>(2026-11-25)</sub>
 
-Themes now match the website.
+The OmniOps web view no longer leaves the app stuck when it cannot start.
 
-### Themes
-- The theme picker has the same thirteen themes as omniglass.org, including the nine ship-maker themes (Drake, Aegis, Origin, RSI,
-  MISC, Anvil, Crusader, Argo, Banu). "Crusader ice" and "Drake phosphor" are now "Polar ice" and "Reactor phosphor", the website's
-  names; if you had one of them selected, it stays selected.
-- The in-game overlay keeps its own look.
+### OmniOps web
+- If the web view inside the window fails to start, OmniGlass now tries once more before opening the separate website window, and
+  removes any half-made view so it can no longer sit over the window and take every click (the app looked frozen).
+- Resizing the window with OmniOps web open no longer opens the separate website window if a redraw fails.
+- Settings › Report a problem now says why the web view could not start, so it can be fixed.
 
 [All releases and downloads](../../releases)
 <!-- latest-release:end -->
