@@ -114,15 +114,15 @@ This repository holds the **Windows installers** and the **update manifest** (`l
 <br>
 
 <!-- latest-release:start -->
-## Latest release: 1.4.3 <sub>(2026-11-25)</sub>
+## Latest release: 1.4.4 <sub>(2026-11-25)</sub>
 
-The OmniOps web view no longer leaves the app stuck when it cannot start.
+OmniOps web works again, and the window opens at a size where its buttons show.
 
 ### OmniOps web
-- If the web view inside the window fails to start, OmniGlass now tries once more before opening the separate website window, and
-  removes any half-made view so it can no longer sit over the window and take every click (the app looked frozen).
-- Resizing the window with OmniOps web open no longer opens the separate website window if a redraw fails.
-- Settings › Report a problem now says why the web view could not start, so it can be fixed.
+- Fixed the cause of OmniOps web opening in a separate window and then freezing the app. Since 1.4.1 the app window, overlay and website window all ran WebView2 with the same startup settings, but the in-window web view did not, and WebView2 refuses a view whose settings differ. It now uses the same settings.
+
+### Window
+- OmniGlass opens centred at a wider size (1100 × 740) and cannot be made narrower than 860 pixels, so the whole top bar and the minimise, maximise and close buttons are always on screen. On a narrow window the title and shard chip give way first.
 
 [All releases and downloads](../../releases)
 <!-- latest-release:end -->
