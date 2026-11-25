@@ -61,8 +61,24 @@ This repository holds the **Windows installers** and the **update manifest** (`l
   <tr>
     <td width="96" align="center"><img src="assets/icons/hud-overlay.png" width="72" alt=""></td>
     <td>
-      <h3>An overlay that watches for you</h3>
-      Pin blueprints and minerals, see your wishlist, and get alerts as the game log changes.
+      <h3>In-game HUD: an overlay that watches for you</h3>
+      A transparent, always-on-top layer over Star Citizen that never takes a click or a key from the game. Turn it on from the top bar (<b>In-game HUD</b>) or with <b>F6</b>. It is made of cards you place yourself:
+      <ul>
+        <li><b>Event feed and alerts:</b> blueprints received, contracts, missions, kills, ship losses and flagged shards, as they happen.</li>
+        <li><b>Watching:</b> blueprints and minerals you pin, with whether you can take the contract that rewards them.</li>
+        <li><b>Session ledger:</b> what happened since the game started, with aUEC earned.</li>
+        <li><b>Timers:</b> refinery jobs, Contested Zone keycards and vault doors, plus the ones you start on omniglass.org. A chirp sounds when one is almost done.</li>
+        <li><b>Squad &amp; pins:</b> your wingmen, whether they are on your shard, and your saved location pins.</li>
+        <li><b>Supply Run:</b> your shopping list, grouped by shop, with the aUEC still to spend.</li>
+      </ul>
+      <b>F7</b> moves and resizes the cards (one saved layout for flying, one for on foot). <b>F8</b> searches without leaving the game. <b>F5</b> brings the OmniGlass window up. Works with one monitor.
+    </td>
+  </tr>
+  <tr>
+    <td width="96" align="center"><img src="assets/icons/omniops.png" width="72" alt=""></td>
+    <td>
+      <h3>OmniOps web, built in</h3>
+      Flip between three views in the same window: <b>In-game HUD</b>, <b>Local engine</b> (your events, blueprints, minerals and reputation) and <b>OmniOps web</b>, the whole of omniglass.org running inside the app. Loadouts, item finder, trade routes, hauling and the rest are there without opening a browser, and the app hands the page your local data, such as the shopping list for Supply Run.
     </td>
   </tr>
   <tr>
