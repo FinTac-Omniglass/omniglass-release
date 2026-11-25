@@ -1,0 +1,30 @@
+# Counts how many times the installer (OmniGlass-OS-<version>-x64-setup.exe) has been downloaded, across every release, and writes the
+# number to badges/installer-downloads.json for the README badge. update-check files (latest.json) and checksums are not counted.
+# Runs every six hours, after each release is published, and by hand. GitHub counts downloads, not different people.
+name: download-count
+on:
+  schedule: [{ cron: '17 */6 * * *' }]
+  release: { types: [published] }
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  count:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Count installer downloads
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          n=$(gh api --paginate "repos/${{ github.repository }}/releases?per_page=100" --jq '.[].assets[] | select(.name | test("-x64-setup\\.exe$")) | .download_count' | paste -sd+ - | bc)
+          n=${n:-0}
+          mkdir -p badges
+          printf '{"schemaVersion":1,"label":"installer downloads","message":"%s","color":"E8B84A"}\n' "$n" > badges/installer-downloads.json
+          echo "Installer downloads: $n"
+      - name: Save it
+        run: |
+          git add badges/installer-downloads.json
+          git diff --cached --quiet && exit 0
+          git -c user.name=gh-ringmaster-adm -c user.email=gh-ringmaster-adm@users.noreply.github.com commit -m "Installer download count"
+          git push
