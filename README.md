@@ -113,6 +113,22 @@ This repository holds the **Windows installers** and the **update manifest** (`l
 
 <br>
 
+<!-- latest-release:start -->
+## Latest release: 1.4.2 <sub>(2026-11-25)</sub>
+
+Themes now match the website.
+
+### Themes
+- The theme picker has the same thirteen themes as omniglass.org, including the nine ship-maker themes (Drake, Aegis, Origin, RSI,
+  MISC, Anvil, Crusader, Argo, Banu). "Crusader ice" and "Drake phosphor" are now "Polar ice" and "Reactor phosphor", the website's
+  names; if you had one of them selected, it stays selected.
+- The in-game overlay keeps its own look.
+
+[All releases and downloads](../../releases)
+<!-- latest-release:end -->
+
+<br>
+
 <h2><img src="assets/h-installing.svg" alt="Installing" height="40"></h2>
 
 1. Open the [latest release](../../releases/latest) and download **`OmniGlass-OS-<version>-x64-setup.exe`**.
