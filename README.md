@@ -114,15 +114,14 @@ This repository holds the **Windows installers** and the **update manifest** (`l
 <br>
 
 <!-- latest-release:start -->
-## Latest release: 1.4.4 <sub>(2026-11-25)</sub>
+## Latest release: 1.4.5 <sub>(2026-11-26)</sub>
 
-OmniOps web works again, and the window opens at a size where its buttons show.
+OmniGlass now tells you when a new version is out.
 
-### OmniOps web
-- Fixed the cause of OmniOps web opening in a separate window and then freezing the app. Since 1.4.1 the app window, overlay and website window all ran WebView2 with the same startup settings, but the in-window web view did not, and WebView2 refuses a view whose settings differ. It now uses the same settings.
-
-### Window
-- OmniGlass opens centred at a wider size (1100 × 740) and cannot be made narrower than 860 pixels, so the whole top bar and the minimise, maximise and close buttons are always on screen. On a narrow window the title and shard chip give way first.
+### Updates
+- A pop-up opens when a newer version is available. It shows what is new, with Install now, Later and Skip this version.
+- Later keeps the reminder bar at the top of the window. Skip this version stops the pop-up for that version only.
+- The app now looks for updates every six hours while it is open, not just when it starts.
 
 [All releases and downloads](../../releases)
 <!-- latest-release:end -->
