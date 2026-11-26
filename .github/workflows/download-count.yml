@@ -25,8 +25,12 @@ jobs:
           printf '{"schemaVersion":1,"label":"installer downloads","message":"%s","color":"E8B84A"}\n' "$n" > badges/installer-downloads.json
           echo "Installer downloads: $n"
       - name: Save it
+        # main only accepts pull requests, so the number lives on its own branch, "badges", which the README badge reads.
         run: |
-          git add badges/installer-downloads.json
-          git diff --cached --quiet && exit 0
-          git -c user.name=gh-ringmaster-adm -c user.email=gh-ringmaster-adm@users.noreply.github.com commit -m "Installer download count"
-          git push origin HEAD:main
+          mkdir -p /tmp/b && cp badges/installer-downloads.json /tmp/b/
+          git checkout -q --orphan badges
+          git rm -rfq . >/dev/null 2>&1 || true
+          cp /tmp/b/installer-downloads.json .
+          git add installer-downloads.json
+          git -c user.name=gh-ringmaster-adm -c user.email=gh-ringmaster-adm@users.noreply.github.com commit -qm "Installer download count"
+          git push -f origin badges

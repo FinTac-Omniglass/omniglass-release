@@ -8,7 +8,7 @@
 [![Website](https://img.shields.io/badge/omniglass.org-Open%20site-5AA9FF?style=for-the-badge&logoColor=white&labelColor=0B1220)](https://omniglass.org)
 
 ![Latest release](https://img.shields.io/github/v/release/FinTac-Omniglass/omniglass-release?style=flat-square&color=E8B84A&labelColor=0B1220&label=latest)
-![Installer downloads](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FFinTac-Omniglass%2Fomniglass-release%2Fmain%2Fbadges%2Finstaller-downloads.json&style=flat-square&labelColor=0B1220)
+![Installer downloads](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FFinTac-Omniglass%2Fomniglass-release%2Fbadges%2Finstaller-downloads.json&style=flat-square&labelColor=0B1220)
 ![Platform](https://img.shields.io/badge/platform-Windows%2010%2F11-8FA6C4?style=flat-square&labelColor=0B1220)
 ![Fan project](https://img.shields.io/badge/fan%20project-unofficial-8FA6C4?style=flat-square&labelColor=0B1220)
 
